@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 
-dir=exp/chainpdp/cnn1a_chainali/decode_test_unk
+dir=exp/chain_fsf5_1/cnn_chainali_1a/decode_test
 lattice-scale --inv-acoustic-scale=12 "ark:gunzip -c $dir/lat.1.gz|" ark:- | \
         lattice-1best ark:- ark:- | \
-        lattice-align-words data/lang_unk/phones/word_boundary.int exp/chainpdp/cnn1a_chainali/final.mdl ark:- ark:- | \
-        lattice-arc-post exp/chainpdp/cnn1a_chainali/final.mdl ark:- - | \
+        lattice-align-words data/lang_unk/phones/word_boundary.int exp/chain_fsf5_1/cnn_chainali_1a/final.mdl ark:- ark:- | \
+        lattice-arc-post exp/chain_fsf5_1/cnn_chainali_1a/final.mdl ark:- - | \
         local/unk_ark_post_to_transcription.py data/lang_unk/phones.txt data/lang_unk/words.txt
 
 dir=exp/chainpdp/cnn1a_chainali/decode_test_unk

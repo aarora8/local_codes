@@ -50,8 +50,8 @@ for line in input_fh:
     utt_phone_dict[uttID][count] = phones
   else:
     count = 0
-    utt_word_dict[uttID] = dict()
-    utt_phone_dict[uttID] = dict()
+    utt_word_dict[uttID] = list()
+    utt_phone_dict[uttID] = list()
     utt_word_dict[uttID][count] = word
     utt_phone_dict[uttID][count] = phones
   count += 1
